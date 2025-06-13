@@ -20,21 +20,16 @@ echo -e "${message_bold}DONE${regular}"
 echo -e "${message}Generating encryption files for MQTT Broker${regular}"
 # Generating the set of encryption files for MQTT Broker
 openssl genrsa -out broker.key 2048
-openssl req -out broker.csr -key mosquitto.key -new -subj '/CN=localhost'
-openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out mosquitto.crt -passin pass:1234 -days 365
+openssl req -out broker.csr -key broker.key -new -subj '/CN=localhost'
+openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker.crt -passin pass:1234 -days 365
 echo -e "${message_bold}DONE${regular}"
 
 # === Step 3. ==========================================
 echo 'Generating encryption files for MQTT Clients'
 # Generating the set of encryption files for MQTT Client(s)
 openssl genrsa -out esp32.key 2048
-# openssl genpkey -slgorithm RSA -out esp32.key -pkeyout rsa_keygen_bits:2048
-
 openssl req -out esp32.csr -key esp32.key -new -subj '/CN=localhost'
-# openssl req -new -key esp32.key -out esp32.csr -subj '/CN=esp32'
-
 openssl x509 -req -in esp32.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out esp32.crt -days 365 -passin pass:1234
-# openssl x509 -req -in esp32.csr -CA ca.crt -CAkey -CAcreateserial -out esp32.crt -days 365
 
 # A loop for generating encryption files for clients
 for i in  {1..3}
