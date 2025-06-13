@@ -20,7 +20,6 @@ echo -e "${message_bold}DONE${regular}"
 echo -e "${message}Generating encryption files for MQTT Broker${regular}"
 # Generating the set of encryption files for MQTT Broker
 openssl genrsa -out broker.key 2048
-# openssl genpkey -algorithm RSA -out server.key -pkeyopt ra_keygen_bits:2048
 
 openssl req -out broker.csr -key mosquitto.key -new -subj '/CN=localhost'
 # openssl req -new -key server.key -out server.csr -config san.conf
