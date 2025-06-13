@@ -3,6 +3,8 @@
 # Date: June 13, 2025
 # This script automatically creates SSL keys and certificates.
 
+# Key variables
+broker_domain_name="techquadbit.net"
 
 # Text formatting
 regular='\033[0;37m'
@@ -13,7 +15,8 @@ warning='\033[1;31m'		# bold and red
 # === Step 1. =========================================
 echo -e "${message}Generating Certificate Authority (CA)${regular}"
 # Generating CA
-openssl req -x509 -new -days 365 -extensions v3_ca -nodes -keyout ca.key -out ca.crt -passout pass:1234 -subj '/CN=techquadbit.net'
+openssl req -x509 -new -days 365 -extensions v3_ca -nodes -keyout ca.key -out ca.crt -passout pass:1234 -subj "/CN=${broker_domain_name}"
+# techquadbit.net'
 echo -e "${message_bold}DONE${regular}"
 
 # === Step 2. =========================================
