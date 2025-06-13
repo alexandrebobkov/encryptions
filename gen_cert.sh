@@ -40,7 +40,8 @@ openssl req -out esp32.csr -key esp32.key -new -subj '/CN=localhost'
 openssl x509 -req -in esp32.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out esp32.crt -days 365 -passin pass:1234
 
 # A loop for generating encryption files for clients
-for i in  {1..3}
+#for i in  {1..3}
+for i in ${esp_nodes_qty}
 do
    echo -e "${message}"
    echo -e "Encryption files for client "$i "${regular}"
