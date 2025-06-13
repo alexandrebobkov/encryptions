@@ -15,7 +15,7 @@ echo -e "${message}Generating Certificate Authority (CA)${regular}"
 # Generating CA
 openssl req -x509 -new -days 365 -extensions v3_ca -nodes -keyout ca.key -out ca.crt -passout pass:1234 -subj '/CN=techquadbit.net'
 # openssl req -x509 -newkey -days 365 rsa:2048 -keyout ca.key -out ca.crt -nodes -subj '/CN=techquadbit.net'
-echo ''
+echo -e "${message_bold}DONE${regular}"
 
 # === Step 2. =========================================
 echo -e "${message}Generating encryption files for MQTT Broker${regular}"
@@ -28,7 +28,7 @@ openssl req -out broker.csr -key mosquitto.key -new -subj '/CN=localhost'
 
 openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out mosquitto.crt -passin pass:1234 -days 365
 # openssl x509 -req -in server.csr -CA ca.crt -CAkey -CAcreateserial -out server.crt -days 365 -extfile san.txt
-echo ''
+echo -e "${message_bold}DONE${regular}"
 
 # === Step 3. ==========================================
 echo 'Generating encryption files for MQTT Clients'
