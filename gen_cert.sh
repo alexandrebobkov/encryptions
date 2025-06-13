@@ -5,6 +5,7 @@
 
 # Key variables
 broker_domain_name="techquadbit.net"
+esp_nodes_qty=3
 
 # Text formatting
 regular='\033[0;37m'
@@ -14,6 +15,7 @@ warning='\033[1;31m'		# bold and red
 
 
 read -p "Specify MQTT Broker domain name: " broker_domain_name
+read -p "Specify the number of cleints that require encryption: " esp_nodes_qty
 
 # === Step 1. =========================================
 echo -e "${message}Generating Certificate Authority (CA)${regular}"
