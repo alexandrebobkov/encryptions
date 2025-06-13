@@ -12,6 +12,9 @@ message='\033[0;32m'		# green
 message_bold='\033[1;32m'	# green & bold
 warning='\033[1;31m'		# bold and red
 
+
+read -p "Specify MQTT Broker domain name: " broker_domain_name
+
 # === Step 1. =========================================
 echo -e "${message}Generating Certificate Authority (CA)${regular}"
 # Generating CA
