@@ -1,7 +1,7 @@
 #!/bin/bash
 # By: Alexander Bobkov
 # Date: June 13, 2025
-# This script automates generating SSL encruption keys and certificates.
+# This script automatically creates SSL keys and certificates.
 
 
 # Color formatting
