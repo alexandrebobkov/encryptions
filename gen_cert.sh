@@ -29,7 +29,8 @@ echo ''
 echo -e "${message}Generating encryption files for MQTT Broker${regular}"
 # Generating the set of encryption files for MQTT Broker
 openssl genrsa -out broker.key 2048
-openssl req -out broker.csr -key broker.key -new -subj '/CN=localhost'
+openssl req -out broker.csr -key broker.key -new -subj '/CN=${broker_domain_name}'
+#localhost'
 openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker.crt -passin pass:1234 -days 365
 echo -e "${message_bold}DONE${regular}"
 echo ''
