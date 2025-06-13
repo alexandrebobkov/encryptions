@@ -4,7 +4,7 @@
 # This script automatically creates SSL keys and certificates.
 
 
-# Color formatting
+# Text formatting
 regular='\033[0;37m'
 message='\033[0;32m'		# green
 message_bold='\033[1;32m'	# green & bold
