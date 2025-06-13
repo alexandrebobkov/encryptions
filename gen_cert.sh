@@ -20,7 +20,7 @@ read -p "Specify the number of cleints that require encryption: " esp_nodes_qty
 # === Step 1. =========================================
 echo -e "${message}Generating Certificate Authority (CA)${regular}"
 # Generating CA
-openssl req -x509 -new -days 365 -extensions v3_ca -nodes -keyout ca.key -out ca.crt -passout pass:1234 -subj "/CN=${broker_domain_name}"
+openssl req -x509 -new -days 365 -extensions v3_ca -nodes -keyout ca.key -out ca.crt -passout pass:1234 -subj "/CN=techquadbit.net"
 # techquadbit.net'
 echo -e "${message_bold}DONE${regular}"
 echo ''
@@ -29,7 +29,7 @@ echo ''
 echo -e "${message}Generating encryption files for MQTT Broker${regular}"
 # Generating the set of encryption files for MQTT Broker
 openssl genrsa -out broker.key 2048
-openssl req -out broker.csr -key broker.key -new -subj '/CN=${broker_domain_name}'
+openssl req -out broker.csr -key broker.key -new -subj '/CN=techquadbit.net'
 #localhost'
 openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker.crt -passin pass:1234 -days 365
 echo -e "${message_bold}DONE${regular}"
