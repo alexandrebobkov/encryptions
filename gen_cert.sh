@@ -25,7 +25,7 @@ openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out b
 echo -e "${message_bold}DONE${regular}"
 
 # === Step 3. ==========================================
-echo 'Generating encryption files for MQTT Clients'
+echo -e "${message}Generating encryption files for MQTT Clients${regular}"
 # Generating the set of encryption files for MQTT Client(s)
 openssl genrsa -out esp32.key 2048
 openssl req -out esp32.csr -key esp32.key -new -subj '/CN=localhost'
