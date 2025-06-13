@@ -60,4 +60,5 @@ echo -e "${message}Use generated files as follows:"
 echo -e "${regular}For MQTT Broker, use the files: ca.crt, broker.crt and broker.key"
 echo 'For MQTT Explorer, use the files: broker.crt, esp.crt and esp.key'
 echo 'For MQTT Clients, use the files: broker.crt, esp32-node#.crt and esp32-node#.key'
-echo -e "${message_bold} The certificates will expire on: "$(date -d "+ 365 days")
+echo ''
+echo -e "${message_bold}The certificates will expire on: "$(date -d "+ 365 days")
