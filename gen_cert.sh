@@ -14,7 +14,6 @@ warning='\033[1;31m'		# bold and red
 echo -e "${message}Generating Certificate Authority (CA)${regular}"
 # Generating CA
 openssl req -x509 -new -days 365 -extensions v3_ca -nodes -keyout ca.key -out ca.crt -passout pass:1234 -subj '/CN=techquadbit.net'
-# openssl req -x509 -newkey -days 365 rsa:2048 -keyout ca.key -out ca.crt -nodes -subj '/CN=techquadbit.net'
 echo -e "${message_bold}DONE${regular}"
 
 # === Step 2. =========================================
