@@ -18,7 +18,7 @@ openssl req -x509 -new -days 365 -extensions v3_ca -nodes -keyout ca.key -out ca
 echo ''
 
 # === Step 2. =========================================
-echo 'Generating encryption files for MQTT Broker'
+echo -e "${message}Generating encryption files for MQTT Broker${regular}"
 # Generating the set of encryption files for MQTT Broker
 openssl genrsa -out broker.key 2048
 # openssl genpkey -algorithm RSA -out server.key -pkeyopt ra_keygen_bits:2048
